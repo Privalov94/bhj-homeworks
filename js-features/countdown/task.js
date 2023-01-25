@@ -1,10 +1,10 @@
-let time = function() {
-    const timer = document.getElementById("timer");
-    if(timer.textContent  > 0) {
-        timer.textContent  -= 1;
+let time = setInterval(function () {
+    let timer = document.getElementById("timer");
+    if (timer.textContent > 0) {
+        timer.textContent -= 1;
     } else {
         alert('Вы победили в конкурсе!');
+        clearInterval(time);
     }
-}
- 
-setInterval(time, 1000);
+},1000)
+
