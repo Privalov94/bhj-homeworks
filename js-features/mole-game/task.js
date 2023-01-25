@@ -1,5 +1,7 @@
-let dead = document.getElementById("dead");
-let lost = document.getElementById("lost");
+const dead = document.getElementById("dead");
+const lost = document.getElementById("lost");
+let counterDead = 0;
+let counterLost = 0;
 
 for (let index = 1; index <= 9; index++) {
 
@@ -18,17 +20,15 @@ for (let index = 1; index <= 9; index++) {
         }
 
         if (Number(dead.textContent) === 10) {
-            dead = 0;
-            lost = 0;
+            dead.textContent = counterDead
+            lost.textContent = counterLost
             alert ("Вы победили!");
         } else if (Number(lost.textContent) === 5) {
-            dead = 0;
-            lost = 0;
+            dead.textContent = counterDead
+            lost.textContent = counterLost
             alert ("Вы проиграли");
         }
     }
-
-    
 }
 
 
