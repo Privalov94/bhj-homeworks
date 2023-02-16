@@ -9,7 +9,7 @@ modalMain.classList.add('modal_active')
 
 modalClose.forEach((button) => {
     button.addEventListener('click', function() {
-        document.getElementById('modal_main').style.display = 'none'
+        button.closest('.modal').style.display = 'none'
     })
 })
 
