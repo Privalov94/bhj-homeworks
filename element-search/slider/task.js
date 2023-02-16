@@ -1,22 +1,41 @@
 const slides = Array.from(document.querySelectorAll('.slider__item'));
 const button = document.querySelectorAll('.slider__arrows')
-let i = 0;
 
+console.log(slides);
+
+function findActiveSlide() { 
+    let index = slides.findIndex(item => item.classList.contains("slider__item_active"));
+    slides[index].classList.remove("slider__item_active");
+    index - 1 ===  -1  ? index = slides.length - 1 : index--
+    slides[index].classList.add("slider__item_active")
+  }
 
 
 button.forEach((value) => {
-    value.addEventListener('click', () => {
-        i++;
-        if (i >= slides.length) {
-            slides[i - 1].classList.remove("slider__item_active");
-            i = 0;
-            slides[i].classList.add("slider__item_active");
-        } else {
-            slides[i - 1].classList.remove("slider__item_active");
-            slides[i].classList.add("slider__item_active");
-        }
+    value.addEventListener('click', (event) => {
+        console.log(event.target);
+        findActiveSlide()
     })
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
