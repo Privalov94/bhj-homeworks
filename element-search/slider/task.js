@@ -15,7 +15,7 @@ function findActiveSlidePrev() {
   function findActiveSlideNext() { 
     let index = slides.findIndex(item => item.classList.contains("slider__item_active"));
     slides[index].classList.remove("slider__item_active");
-    index - 1 === slides.length ? index = 0 : index ++
+    index + 1 === slides.length ? index = 0 : index ++
     slides[index].classList.add("slider__item_active");
   }
 
