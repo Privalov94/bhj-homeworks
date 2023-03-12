@@ -17,16 +17,11 @@ class Game {
   }
 
   registerEvents() {
-    const current = this.currentSymbol;
-    console.log(current);
-
-    document.addEventListener('keyup', function(event) {
-      console.log(event.key)
-
-      if(current === String.fromCharCode(event)) {
-        this.success()
+    document.addEventListener('keyup', (event) => {
+      if(event.key == this.currentSymbol.textContent) {
+        this.success();
       } else {
-        this.fail()
+        this.fail();
       }
     })
   }
