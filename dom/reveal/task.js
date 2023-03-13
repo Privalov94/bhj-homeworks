@@ -3,12 +3,12 @@ const reveal = Array.from(document.querySelectorAll('.reveal'));
 console.log(reveal);
 
 
-document.addEventListener('scroll', isVisible(reveal))
+document.addEventListener('scroll', isVisible)
 
-function isVisible(el) {
-    el.forEach( value => {
+function isVisible() {
+    reveal.forEach( value => {
         const{top, bottom} = value.getBoundingClientRect();
-        if(top > 0 && bottom > window.innerHeight) {
+        if(top > 0 && bottom < window.innerHeight) {
             value.classList.add('reveal_active');
         }
     })
