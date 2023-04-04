@@ -4,18 +4,22 @@ const form = document.getElementById('form');
 const file = document.getElementById('file');
 
 
-form.addEventListener('sumbit', (event) => {
+form.addEventListener('submit', (event) => {
     event.preventDefault();
 
     const xhr = new XMLHttpRequest();
+    
 
-    xhr.addEventListener('readystatechange', ()=> {
-        if(xhr.readyState === xhr.DONE && xhr.status === 200) {
-            xhr.upload.onprogress = function() {
-                progress.value = 0.7;
-            }
+    xhr.upload.onprogress = function(event) {
+        progress.value = event.loaded
+    }
+    xhr.onload = function() {
+        if(xhr.status === 201) {
+          console.log('Файл загружен')
+        } else {
+            console.log('Файл не загружен');
         }
-    })
+    }
 
     const formData = new FormData();
     formData.append('file', file.files[0]);
